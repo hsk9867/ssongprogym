@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>쏭프로GYM | 세종 나성동 헬스장·PT</title>
+<meta name="description" content="세종 첫마을 참미르빌딩 2층 쏭프로GYM. 비키니 프로 선수 출신 여자 대표가 직접 운영하는 1:1 PT 전문 헬스장. 너틸러스·해머스트렝스 머신, 무료 주차.">
+<meta property="og:title" content="쏭프로GYM | 세종 나성동 헬스장·PT">
+<meta property="og:description" content="세종 첫마을 참미르빌딩 2층. 비키니 프로 선수 출신 대표의 1:1 PT, 명품 브랜드 머신, 무료 주차.">
+<meta property="og:image" content="images/gym-main.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="images/logo.jpg">
+<link rel="preload" as="image" href="images/gym-main.jpg">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root {
+    --bg: #ecebe9;
+    --bg-2: #e2e1de;
+    --surface: #f6f5f3;
+    --ink: #17181a;
+    --ink-2: #3f4144;
+    --muted: #6d6f73;
+    --line: #cfcecb;
+    --accent: #c9552a;
+    --accent-ink: #fff4ee;
+    --accent-soft: #f3dfd4;
+    --radius: 14px;
+    --font: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: -0.012em;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { margin: 0; text-wrap: balance; line-height: 1.2; letter-spacing: -0.03em; word-break: keep-all; }
+  p { margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .wrap { width: min(1200px, 100% - 48px); margin-inline: auto; }
+  @media (max-width: 640px) { .wrap { width: calc(100% - 32px); } }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    height: 52px; padding: 0 24px; border-radius: 999px;
+    font-weight: 700; font-size: 15px; white-space: nowrap;
+    border: 1px solid transparent;
+    transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .btn:active { transform: translateY(1px) scale(.985); }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-primary:hover { background: #b2471f; }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--surface); }
+  .btn-light { background: var(--surface); color: var(--ink); border-color: var(--line); }
+  .btn-light:hover { border-color: var(--ink); }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    height: 68px;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+  }
+  .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.02em; font-size: 17px; }
+  .brand-mark {
+    width: 40px; height: 40px; flex: none;
+    background: url("images/logo.jpg") 49% 44% / auto 170% no-repeat;
+    mix-blend-mode: multiply;
+    filter: brightness(1.34) contrast(1.45);
+  }
+  .nav-links { display: flex; gap: 28px; font-size: 15px; font-weight: 600; color: var(--ink-2); }
+  .nav-links a:hover { color: var(--ink); }
+  .nav .btn { height: 42px; padding: 0 18px; font-size: 14px; }
+  @media (max-width: 900px) { .nav-links { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: clamp(40px, 7vw, 88px) 0 clamp(48px, 7vw, 96px); }
+  .hero .wrap {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center;
+  }
+  .hero h1 { font-size: clamp(32px, 3.3vw, 50px); font-weight: 800; word-break: keep-all; }
+  .hero h1 em { font-style: normal; color: var(--accent); white-space: nowrap; }
+  .hero p { margin-top: 22px; font-size: clamp(16px, 1.3vw, 19px); color: var(--ink-2); max-width: 32em; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .hero-visual { position: relative; }
+  .hero-visual .frame {
+    aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; background: var(--bg-2);
+    box-shadow: 0 30px 60px -30px rgba(23, 24, 26, .45);
+  }
+  .hero-visual img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .hero-visual .tag {
+    position: absolute; left: -18px; bottom: 28px;
+    background: var(--ink); color: var(--surface);
+    padding: 14px 18px; border-radius: var(--radius);
+    font-size: 14px; line-height: 1.45;
+    box-shadow: 0 20px 40px -20px rgba(23, 24, 26, .6);
+  }
+  .hero-visual .tag strong { display: block; font-size: 22px; letter-spacing: -0.02em; }
+  @media (max-width: 900px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .hero-visual .tag { left: 12px; bottom: 12px; }
+    .hero h1 br { display: none; }
+  }
+
+  /* ---------- Numbers ---------- */
+  .numbers { border-block: 1px solid var(--line); background: var(--bg-2); }
+  .numbers .wrap {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    padding: 32px 0;
+  }
+  .numbers li { padding: 8px 28px; border-left: 1px solid var(--line); }
+  .numbers li:first-child { border-left: 0; padding-left: 0; }
+  .numbers strong { display: block; font-size: clamp(28px, 3vw, 40px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .numbers strong small { font-size: .5em; font-weight: 700; margin-left: 2px; }
+  .numbers span { display: block; color: var(--muted); font-size: 14px; margin-top: 6px; }
+  @media (max-width: 760px) {
+    .numbers .wrap { grid-template-columns: 1fr 1fr; row-gap: 24px; }
+    .numbers li:nth-child(3) { border-left: 0; padding-left: 0; }
+  }
+
+  /* ---------- Section base ---------- */
+  section { padding: clamp(64px, 9vw, 120px) 0; }
+  .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+  .h2 { font-size: clamp(28px, 3.4vw, 44px); font-weight: 800; }
+  .lead { margin-top: 18px; font-size: 17px; color: var(--ink-2); max-width: 36em; }
+
+  /* ---------- About ---------- */
+  .about .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .about-logo { border-radius: var(--radius); overflow: hidden; aspect-ratio: 1; background: #c7c7c7; }
+  .about-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .about-body p + p { margin-top: 14px; }
+  .about-body p { color: var(--ink-2); }
+  .about-points { margin-top: 28px; display: grid; gap: 12px; }
+  .about-points li { display: flex; gap: 12px; align-items: flex-start; font-weight: 600; }
+  .about-points li::before { content: ""; flex: none; width: 10px; height: 10px; margin-top: 9px; border-radius: 2px; background: var(--accent); }
+  @media (max-width: 900px) { .about .wrap { grid-template-columns: 1fr; } .about-logo { max-width: 420px; } }
+
+  /* ---------- Programs (bento) ---------- */
+  .programs { background: var(--bg-2); }
+  .bento {
+    margin-top: 44px;
+    display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: auto auto; gap: 16px;
+  }
+  .cell { border-radius: var(--radius); overflow: hidden; position: relative; }
+  .cell-pt { grid-row: 1 / span 2; min-height: 520px; color: var(--surface); display: flex; align-items: flex-end; }
+  .cell-pt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .cell-pt::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(23,24,26,.88) 0%, rgba(23,24,26,.35) 45%, rgba(23,24,26,0) 75%); }
+  .cell-pt .cell-body { position: relative; z-index: 1; padding: 36px; }
+  .cell-pt h3 { font-size: clamp(26px, 2.6vw, 34px); }
+  .cell-pt p { margin-top: 10px; color: #d9d9d9; max-width: 30em; }
+  .cell-plain { background: var(--surface); padding: 32px; border: 1px solid var(--line); }
+  .cell-plain h3 { font-size: 22px; }
+  .cell-plain p { margin-top: 10px; color: var(--ink-2); font-size: 15px; }
+  .cell-accent { background: var(--ink); color: var(--surface); padding: 32px; }
+  .cell-accent h3 { font-size: 22px; }
+  .cell-accent p { margin-top: 10px; color: #c9c9c9; font-size: 15px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .chips li { font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--accent-soft); color: #7a2f12; }
+  .cell-accent .chips li { background: #2a2b2e; color: #e6e6e6; }
+  @media (max-width: 900px) {
+    .bento { grid-template-columns: 1fr; }
+    .cell-pt { grid-row: auto; min-height: 400px; }
+    .cell-pt img { transform: scale(1.3); transform-origin: top center; }
+  }
+
+  /* ---------- Facilities ---------- */
+  .fac-grid { margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .fac { border-radius: var(--radius); overflow: hidden; background: var(--bg-2); }
+  .fac .pic { aspect-ratio: 16 / 10; overflow: hidden; }
+  .fac img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  .fac:hover img { transform: scale(1.03); }
+  .fac .cap { padding: 18px 22px 22px; }
+  .fac .cap h3 { font-size: 19px; }
+  .fac .cap p { margin-top: 6px; color: var(--ink-2); font-size: 15px; }
+  .fac-wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1.3fr 1fr; }
+  .fac-wide .pic { aspect-ratio: 16 / 10; }
+  .fac-wide .cap { padding: 36px; display: flex; flex-direction: column; justify-content: center; }
+  .fac-wide .cap h3 { font-size: 24px; }
+  .amen { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .amen li { font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
+  @media (max-width: 760px) {
+    .fac-grid { grid-template-columns: 1fr; }
+    .fac-wide { grid-template-columns: 1fr; }
+    .fac-wide .pic { aspect-ratio: 16 / 10; }
+  }
+
+  /* ---------- Event ---------- */
+  .event { background: var(--ink); color: var(--surface); }
+  .event .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+  .event .eyebrow { color: #f0a07e; }
+  .event .h2 { color: var(--surface); }
+  .event .lead { color: #c9c9c9; }
+  .poster { border-radius: var(--radius); overflow: hidden; aspect-ratio: 1; }
+  .poster img { width: 100%; height: 100%; object-fit: cover; }
+  .price { margin-top: 32px; padding-top: 28px; border-top: 1px solid #333538; display: grid; gap: 20px; }
+  .price li { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline; }
+  .price .name { font-weight: 700; font-size: 17px; }
+  .price .desc { display: block; font-size: 14px; color: #a9aaad; font-weight: 500; margin-top: 2px; }
+  .price .won { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .price .won small { font-size: 15px; font-weight: 600; margin-left: 2px; }
+  .price .won.hot { color: #f0a07e; }
+  .pay { margin-top: 26px; font-size: 14px; color: #a9aaad; }
+  .event .btn-primary { margin-top: 28px; }
+  @media (max-width: 900px) { .event .wrap { grid-template-columns: 1fr; } .poster { max-width: 520px; } }
+
+  /* ---------- Reviews ---------- */
+  .reviews .top { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+  .kw { display: grid; gap: 10px; }
+  .kw li { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); font-weight: 600; }
+  .kw li span { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+  .quotes { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .quote { padding: 32px; border-left: 3px solid var(--accent); background: var(--bg-2); border-radius: 0 var(--radius) var(--radius) 0; }
+  .quote p { font-size: 18px; font-weight: 600; line-height: 1.55; }
+  .quote footer { margin-top: 16px; font-size: 14px; color: var(--muted); }
+  @media (max-width: 760px) { .reviews .top, .quotes { grid-template-columns: 1fr; } }
+
+  /* ---------- Visit ---------- */
+  .visit { background: var(--bg-2); }
+  .visit .wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(32px, 5vw, 64px); align-items: stretch; }
+  .hours { margin-top: 28px; display: grid; gap: 0; }
+  .hours li { display: grid; grid-template-columns: 1fr auto; padding: 12px 0; border-bottom: 1px solid var(--line); font-weight: 600; }
+  .hours li:last-child { border-bottom: 0; }
+  .hours li span { font-variant-numeric: tabular-nums; color: var(--ink-2); }
+  .hours .note { color: var(--accent); font-weight: 700; }
+  .addr { margin-top: 26px; }
+  .addr strong { display: block; font-size: 18px; }
+  .addr p { color: var(--ink-2); margin-top: 6px; }
+  .visit-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .map { border-radius: var(--radius); overflow: hidden; min-height: 420px; background: var(--surface); border: 1px solid var(--line); }
+  .map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; filter: grayscale(.2); }
+  @media (max-width: 900px) { .visit .wrap { grid-template-columns: 1fr; } }
+
+  /* ---------- Footer ---------- */
+  footer.site { padding: 48px 0 36px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+  footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center; }
+  footer.site .brand { font-size: 16px; color: var(--ink); }
+  footer.site nav { display: flex; gap: 20px; font-weight: 600; color: var(--ink-2); }
+  footer.site nav a:hover { color: var(--accent); }
+  footer.site .fine { width: 100%; margin-top: 8px; }
+
+  /* ---------- Reveal ---------- */
+  .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .rv.in { opacity: 1; transform: none; }
+  .rv-2 { transition-delay: .1s; }
+  .rv-3 { transition-delay: .2s; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .rv { opacity: 1; transform: none; transition: none; }
+    .fac img, .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="쏭프로GYM 홈">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>쏭프로GYM</span>
+    </a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="#about">대표 소개</a>
+      <a href="#programs">프로그램</a>
+      <a href="#facility">시설</a>
+      <a href="#event">이벤트</a>
+      <a href="#visit">오시는 길</a>
+    </nav>
+    <a class="btn btn-primary" href="https://m.booking.naver.com/booking/6/bizes/1255793" target="_blank" rel="noopener">상담·예약하기</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="rv">
+        <h1 id="hero-title">기구가 제일 좋은 세종 헬스장<br><em>쏭프로GYM</em></h1>
+        <p>비키니 프로 선수 출신 여자 대표가 직접 운영합니다. 너틸러스, 해머스트렝스 명품 머신과 체형 분석 기반 1:1 PT로 몸의 변화를 책임집니다.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://m.booking.naver.com/booking/6/bizes/1255793" target="_blank" rel="noopener">상담·예약하기</a>
+          <a class="btn btn-ghost" href="#visit">오시는 길</a>
+        </div>
+      </div>
+      <div class="hero-visual rv rv-2">
+        <div class="frame">
+          <img src="images/gym-main.jpg" alt="쏭프로GYM 내부. 샹들리에 아래 정돈된 웨이트 머신들" fetchpriority="high">
+        </div>
+        <div class="tag">
+          <strong>첫마을 1단지 앞</strong>
+          참미르빌딩 2층 · 무료 주차
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="numbers" role="region" aria-label="네이버 플레이스 지표">
+    <ul class="wrap">
+      <li class="rv"><strong>5.0</strong><span>네이버 방문자 평점</span></li>
+      <li class="rv rv-2"><strong>281<small>개</small></strong><span>방문자 리뷰</span></li>
+      <li class="rv rv-3"><strong>618<small>개</small></strong><span>블로그·카페 리뷰</span></li>
+      <li class="rv rv-3"><strong>3<small>년 연속</small></strong><span>세종시 대회 그랑프리 수상 대표</span></li>
+    </ul>
+  </div>
+
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="about-logo rv">
+        <img src="images/logo.jpg" alt="쏭프로GYM 로고. S와 P가 겹친 블랙 모노그램" loading="lazy">
+      </div>
+      <div class="about-body rv rv-2">
+        <span class="eyebrow">About</span>
+        <h2 class="h2" id="about-title">선수 출신 대표가<br>회원 한 분 한 분의 변화를 책임집니다</h2>
+        <div class="lead">
+          <p>쏭프로GYM은 여자 대표가 직접 운영하는 센터입니다. 비키니 프로 선수 출신의 노하우를 바탕으로 보다 섬세하고 체계적인 트레이닝을 제공합니다.</p>
+          <p>단순한 기구 사용법이 아니라 올바른 근육 사용법과 정확한 움직임을 배우는 데 집중합니다. 잘못된 습관을 바로잡아 부상 위험은 줄이고 효과는 높입니다.</p>
+        </div>
+        <ul class="about-points">
+          <li>3년 연속 세종시 대회 그랑프리 수상</li>
+          <li>여성 체형 전문, 비키니 프로 선수 출신</li>
+          <li>체형과 움직임 패턴 분석 후 단계별 프로그램 구성</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs" id="programs" aria-labelledby="programs-title">
+    <div class="wrap">
+      <h2 class="h2 rv" id="programs-title">초보부터 바디프로필까지,<br>목표에 맞춘 프로그램</h2>
+      <div class="bento">
+        <article class="cell cell-pt rv">
+          <img src="images/gym-machines.jpg" alt="너틸러스, 해머스트렝스 등 플레이트 로드 머신이 놓인 웨이트 존" loading="lazy">
+          <div class="cell-body">
+            <h3>1:1 개인 PT</h3>
+            <p>현재 상태와 목표를 먼저 파악하고, 동작마다 자세를 꼼꼼히 체크합니다. 운동이 처음인 분도 안전하게 시작할 수 있습니다.</p>
+            <ul class="chips" aria-label="PT 목적">
+              <li>운동 초보</li><li>다이어트</li><li>힙업</li><li>벌크업</li><li>체형교정</li><li>바디프로필</li>
+            </ul>
+          </div>
+        </article>
+        <article class="cell cell-plain rv rv-2">
+          <h3>헬스 회원권</h3>
+          <p>평일 새벽 6시부터 밤 11시까지. 명품 브랜드 머신과 유산소 12종을 자유롭게 이용하세요. 온누리상품권 가맹점입니다.</p>
+        </article>
+        <article class="cell cell-accent rv rv-3">
+          <h3>정밀 체형분석 · 근막이완</h3>
+          <p>가동 범위와 통증 부위까지 확인하는 체형 분석 시스템. 재활 목적 운동과 근력 증가, 몸매 라인 개선까지 대응합니다.</p>
+          <ul class="chips" aria-label="분석 항목">
+            <li>체형 분석</li><li>근막 이완</li><li>재활 운동</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="facility" aria-labelledby="facility-title">
+    <div class="wrap">
+      <h2 class="h2 rv" id="facility-title">매일 청결 관리하는<br>쾌적한 운동 공간</h2>
+      <p class="lead rv rv-2">세종 첫마을 1단지 앞, 메가커피와 국민은행이 있는 참미르빌딩 2층. 직장인과 거주민 모두 편하게 들를 수 있는 위치입니다.</p>
+      <div class="fac-grid">
+        <article class="fac fac-wide rv">
+          <div class="pic"><img src="images/gym-main.jpg" alt="샹들리에가 있는 쏭프로GYM 메인 웨이트 존" loading="lazy"></div>
+          <div class="cap">
+            <h3>최신 명품 브랜드 머신</h3>
+            <p>너틸러스, 해머스트렝스, 온힘 머신이 계속 들어옵니다. 스트레칭존 확장과 해외 머신 리뉴얼을 마쳤습니다.</p>
+            <ul class="amen" aria-label="편의 시설">
+              <li>무료 주차</li><li>장애인 주차구역</li><li>남녀 화장실 구분</li><li>무선 인터넷</li><li>네이버 예약</li>
+            </ul>
+          </div>
+        </article>
+        <article class="fac rv">
+          <div class="pic"><img src="images/gym-cardio.jpg" alt="큰 창 앞에 놓인 트레드밀, 스텝밀, 사이클" loading="lazy"></div>
+          <div class="cap">
+            <h3>확 트인 뷰, 유산소 12종</h3>
+            <p>통창 너머 첫마을 풍경을 보며 트레드밀, 스텝밀, 사이클을 이용할 수 있습니다.</p>
+          </div>
+        </article>
+        <article class="fac rv rv-2">
+          <div class="pic"><img src="images/gym-machines.jpg" alt="정돈된 플레이트 로드 머신과 대리석 바닥" loading="lazy"></div>
+          <div class="cap">
+            <h3>정돈된 동선, 매일 소독</h3>
+            <p>체계적인 동선으로 구성된 공간을 매일 청결 관리와 소독으로 유지합니다.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="event" id="event" aria-labelledby="event-title">
+    <div class="wrap">
+      <div class="poster rv">
+        <img src="images/event-autumn.jpg" alt="10월 가을맞이 이벤트 포스터. 10개월 등록과 체형맞춤 레슨 2회에 320,000원" loading="lazy">
+      </div>
+      <div class="rv rv-2">
+        <span class="eyebrow">10월 가을맞이 BIG EVENT</span>
+        <h2 class="h2" id="event-title">가을엔, 운동하자.</h2>
+        <p class="lead">10개월 등록에 체형맞춤 레슨 2회를 더해 월 3만 원대. 선착순 20명까지 받습니다.</p>
+        <ul class="price">
+          <li>
+            <div><span class="name">헬스 10개월 + 체형맞춤 레슨 2회</span><span class="desc">월 3만 원대 · 선착순 20명</span></div>
+            <span class="won hot">320,000<small>원</small></span>
+          </li>
+          <li>
+            <div><span class="name">일일권</span><span class="desc">처음 방문하시는 분도 당일 이용 가능</span></div>
+            <span class="won">15,000<small>원</small></span>
+          </li>
+        </ul>
+        <p class="pay">온누리상품권 가맹점 · 지역화폐(카드형), 제로페이 결제 가능</p>
+        <a class="btn btn-primary" href="https://m.booking.naver.com/booking/6/bizes/1255793" target="_blank" rel="noopener">상담·예약하기</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="top">
+        <div class="rv">
+          <span class="eyebrow">Reviews</span>
+          <h2 class="h2" id="reviews-title">250명이 직접 고른<br>쏭프로GYM 키워드</h2>
+          <p class="lead">네이버 방문자 리뷰에서 가장 많이 선택된 키워드입니다. 친절함과 꼼꼼한 자세 지도, 다양한 기구가 꾸준히 언급됩니다.</p>
+        </div>
+        <ul class="kw rv rv-2" aria-label="방문자 리뷰 키워드">
+          <li>친절해요 <span>226명</span></li>
+          <li>시설이 깔끔해요 <span>199명</span></li>
+          <li>자세를 꼼꼼히 봐주세요 <span>166명</span></li>
+          <li>기구가 다양해요 <span>166명</span></li>
+        </ul>
+      </div>
+      <div class="quotes">
+        <blockquote class="quote rv">
+          <p>“웨이트를 10년 했는데 명기 기구들이 계속 들어오니 기구 맛집이에요.”</p>
+          <footer>네이버 방문자 리뷰</footer>
+        </blockquote>
+        <blockquote class="quote rv rv-2">
+          <p>“각 동작마다 자세를 꼼꼼히 체크해주셔서 안전하게 운동할 수 있었어요.”</p>
+          <footer>네이버 블로그 리뷰</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit" aria-labelledby="visit-title">
+    <div class="wrap">
+      <div class="rv">
+        <h2 class="h2" id="visit-title">운영시간과 오시는 길</h2>
+        <ul class="hours" aria-label="운영시간">
+          <li>월요일 ~ 금요일 <span>06:00 ~ 23:00</span></li>
+          <li>토요일 <span>10:00 ~ 19:00</span></li>
+          <li>일요일 <span>12:00 ~ 18:00</span></li>
+          <li>정기 휴무 <span class="note">매달 마지막 주 일요일</span></li>
+        </ul>
+        <div class="addr">
+          <strong>세종특별자치시 한누리대로 193 참미르빌딩 2층 202호</strong>
+          <p>지번: 세종 나성동 716 · 첫마을 1단지 앞 신협, 국민은행 건물</p>
+        </div>
+        <div class="visit-cta">
+          <a class="btn btn-primary" href="https://map.naver.com/p/entry/place/1316527034" target="_blank" rel="noopener">네이버 지도 길찾기</a>
+          <a class="btn btn-light" href="http://talk.naver.com/w3dy11l" target="_blank" rel="noopener">네이버 톡톡 문의</a>
+        </div>
+      </div>
+      <div class="map rv rv-2">
+        <iframe
+          title="쏭프로GYM 위치 지도"
+          src="https://maps.google.com/maps?q=36.4821241,127.2606362&z=17&hl=ko&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>쏭프로GYM</a>
+    <nav aria-label="외부 링크">
+      <a href="https://www.instagram.com/ssong_pro_gym" target="_blank" rel="noopener">인스타그램</a>
+      <a href="https://blog.naver.com/ssongprogym" target="_blank" rel="noopener">네이버 블로그</a>
+      <a href="https://map.naver.com/p/entry/place/1316527034" target="_blank" rel="noopener">네이버 플레이스</a>
+      <a href="https://m.booking.naver.com/booking/6/bizes/1255793" target="_blank" rel="noopener">상담·예약하기</a>
+    </nav>
+    <p class="fine">세종특별자치시 한누리대로 193 참미르빌딩 2층 202호 · © 2026 쏭프로GYM</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.rv');
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches || location.search.indexOf('static') > -1) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
