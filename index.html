@@ -72,6 +72,32 @@
   .btn-dark { background: var(--surface-2); color: var(--text); }
   .btn-dark:hover { background: #2f2c2a; }
 
+  /* ---------- Intro splash ---------- */
+  .intro {
+    position: fixed; inset: 0; z-index: 300; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    background: radial-gradient(60% 55% at 50% 45%, rgba(120, 22, 18, .55) 0%, rgba(58, 5, 6, .35) 40%, rgba(11, 10, 10, 0) 75%), var(--bg);
+    animation: introFade .8s ease-in-out 2.3s forwards; will-change: opacity;
+  }
+  .intro.is-done { display: none; }
+  .intro-figure {
+    width: min(260px, 52vw); aspect-ratio: 1;
+    background: url("images/logo.jpg") 48% 35.2% / auto 176% no-repeat;
+    filter: invert(1) brightness(.7) contrast(2.6) drop-shadow(0 0 28px rgba(255, 120, 90, .35));
+    mix-blend-mode: screen;
+    -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+    animation: introPop .7s cubic-bezier(.2, 1.4, .4, 1) both, introWiggle 1s ease-in-out .7s 1, introZoom 1.1s cubic-bezier(.7, 0, .3, 1) 1.9s forwards;
+  }
+  .intro-word { font-family: var(--display); font-size: clamp(34px, 6vw, 56px); letter-spacing: .08em; line-height: 1; margin-top: 8px; opacity: 0; animation: introUp .7s cubic-bezier(.16, 1, .3, 1) .35s forwards, introOut .5s ease 1.9s forwards; }
+  .intro-tag { font-family: var(--display); font-size: clamp(15px, 2.2vw, 20px); letter-spacing: .22em; color: #f0a07e; opacity: 0; animation: introUp .7s cubic-bezier(.16, 1, .3, 1) .55s forwards, introOut .5s ease 1.9s forwards; }
+  @keyframes introPop { from { opacity: 0; transform: scale(.5) translateY(30px); } to { opacity: 1; transform: none; } }
+  @keyframes introWiggle { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-6deg) scale(1.04); } 50% { transform: rotate(6deg) scale(1.06); } 80% { transform: rotate(-3deg) scale(1.02); } }
+  @keyframes introZoom { to { opacity: 0; transform: scale(7); } }
+  @keyframes introUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes introOut { to { opacity: 0; } }
+  @keyframes introFade { to { opacity: 0; visibility: hidden; } }
+  @media (prefers-reduced-motion: reduce) { .intro { display: none; } }
+
   /* ---------- Floating nav ---------- */
   .nav {
     position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 60;
@@ -153,17 +179,10 @@
   .hero-inner { display: grid; justify-items: center; gap: 28px; }
   .hero h1 {
     font-family: var(--display); font-weight: 400; letter-spacing: .01em; line-height: .9;
-    font-size: clamp(64px, 11.5vw, 176px); text-transform: uppercase;
+    font-size: clamp(56px, 11.5vw, 176px); text-transform: uppercase;
     display: grid; justify-items: center;
   }
   .hero h1 .line { display: flex; align-items: center; gap: .12em; }
-  .hero h1 .emblem {
-    width: .78em; height: .78em; flex: none; margin: 0 .02em;
-    background: url("images/logo.jpg") 48% 35.2% / auto 176% no-repeat;
-    filter: invert(1) brightness(.7) contrast(2.6) drop-shadow(0 0 18px rgba(255, 120, 90, .35));
-    mix-blend-mode: screen;
-    -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
-  }
   .hero p { font-size: clamp(16px, 1.5vw, 20px); font-weight: 600; line-height: 1.6; max-width: 34em; }
   .hero p span { display: block; }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
@@ -326,6 +345,12 @@
 
 <div class="hero-grain" aria-hidden="true"></div>
 
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-figure"></div>
+  <p class="intro-word">SSONG PRO GYM</p>
+  <p class="intro-tag">PT &amp; FITNESS, SEJONG</p>
+</div>
+
 <header class="nav">
   <button class="nav-menu" type="button" aria-controls="menu" aria-expanded="false" id="menuOpen">
     <span class="bars" aria-hidden="true"><i></i></span><span>MENU</span>
@@ -362,8 +387,7 @@
     <div class="hero-bg" aria-hidden="true"><img src="images/gym-main.jpg" alt="" fetchpriority="high"></div>
     <div class="wrap hero-inner">
       <h1 id="hero-title">
-        <span class="line">SSONG <span class="emblem" aria-hidden="true"></span> PRO</span>
-        <span class="line">GYM IN SEJONG</span>
+        <span class="line">SSONG PRO GYM</span>
       </h1>
       <p><span>비키니 프로 선수 출신 대표가 직접 운영하는 세종 PT 전문 헬스장,</span><span>쏭프로GYM에서 몸의 변화를 시작하세요.</span></p>
       <div class="hero-cta">
@@ -601,6 +625,14 @@
 
 <script>
   (function () {
+    var intro = document.getElementById('intro');
+    if (intro) {
+      var endIntro = function () { intro.classList.add('is-done'); };
+      intro.addEventListener('animationend', function (e) { if (e.target === intro) endIntro(); });
+      intro.addEventListener('click', endIntro);
+      setTimeout(endIntro, 3800);
+    }
+
     var menu = document.getElementById('menu'), openBtn = document.getElementById('menuOpen'), closeBtn = document.getElementById('menuClose');
     function setMenu(open) {
       menu.classList.toggle('open', open);
