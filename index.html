@@ -85,7 +85,7 @@
     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     border-radius: var(--radius);
     border: 1px solid rgba(227, 32, 44, .14);
-    opacity: 0; animation: show .6s ease 2.4s forwards;
+    opacity: 0; animation: show .6s ease .2s forwards;
   }
   .nav-menu {
     display: inline-flex; align-items: center; gap: 10px; justify-self: start;
@@ -152,7 +152,7 @@
   .hero-inner {
     display: grid; justify-items: center; gap: 28px;
     opacity: 0; transform: translateY(24px);
-    animation: fadeUp .9s cubic-bezier(.16, 1, .3, 1) 2.2s forwards;
+    animation: fadeUp .9s cubic-bezier(.16, 1, .3, 1) .1s forwards;
   }
   .hero h1 {
     font-family: var(--display); font-weight: 400; letter-spacing: .01em; line-height: .86;
@@ -164,15 +164,15 @@
     display: inline-block; opacity: 0; transform: translateY(110%);
     animation: riseIn 1.1s cubic-bezier(.16, 1, .3, 1) forwards;
   }
-  .hero h1 .line:nth-child(1) .word-in { animation-delay: 2.25s; }
-  .hero h1 .line:nth-child(2) .word-in { animation-delay: 2.42s; }
+  .hero h1 .line:nth-child(1) .word-in { animation-delay: .15s; }
+  .hero h1 .line:nth-child(2) .word-in { animation-delay: .3s; }
   .hero h1 .line-gym .word-in {
     color: transparent; -webkit-text-stroke: .018em var(--red-soft);
     background: linear-gradient(110deg, var(--red) 0%, var(--red) 42%, #ff9ba1 50%, var(--red) 58%, var(--red) 100%);
     background-size: 260% 100%; background-position: 120% 0;
     -webkit-background-clip: text; background-clip: text;
     filter: drop-shadow(0 0 .12em rgba(227, 32, 44, .45));
-    animation: riseIn 1.1s cubic-bezier(.16, 1, .3, 1) 2.42s forwards, shine 4.5s ease-in-out 3.6s infinite;
+    animation: riseIn 1.1s cubic-bezier(.16, 1, .3, 1) .3s forwards, shine 4.5s ease-in-out 1.6s infinite;
   }
   @keyframes riseIn { from { opacity: 0; transform: translateY(110%); letter-spacing: .18em; } to { opacity: 1; transform: none; letter-spacing: .01em; } }
   @keyframes shine { 0%, 55% { background-position: 120% 0; } 85%, 100% { background-position: -40% 0; } }
@@ -181,7 +181,7 @@
     position: absolute; left: 50%; bottom: 36px; transform: translateX(-50%);
     display: grid; justify-items: center; gap: 6px; color: var(--dim);
     font-family: var(--display); font-size: 13px; letter-spacing: .2em;
-    opacity: 0; animation: show .6s ease 2.8s forwards;
+    opacity: 0; animation: show .6s ease 1s forwards;
   }
   .scroll-cue .arrow { width: 1px; height: 22px; background: currentColor; position: relative; animation: cue 1.8s ease-in-out infinite; }
   .scroll-cue .arrow::after { content: ""; position: absolute; left: -4px; bottom: -1px; width: 8px; height: 8px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); }
@@ -189,36 +189,11 @@
   @keyframes fadeUp { to { opacity: 1; transform: none; } }
   @keyframes show { to { opacity: 1; } }
 
-  /* ---------- Intro overlay (auto plays, then reveals the hero) ---------- */
-  .intro-overlay {
-    position: absolute; inset: 0; z-index: 5;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background: var(--crimson);
-    background-image: radial-gradient(70% 60% at 50% 45%, rgba(227, 32, 44, .22) 0%, rgba(138, 15, 28, 0) 70%);
-    animation: introFade .9s ease-in-out 1.7s forwards; will-change: opacity;
-  }
-  .intro-mask {
-    position: relative; width: min(300px, 56vw); aspect-ratio: 362 / 474;
-    filter: drop-shadow(0 0 28px rgba(227, 32, 44, .35));
-    animation: introZoom 1.3s cubic-bezier(.7, 0, .3, 1) 1.5s forwards;
-  }
-  .intro-mask img { width: 100%; height: 100%; object-fit: contain; }
-  .intro-slogan { margin-top: 44px; text-align: center; font-size: clamp(22px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; color: var(--text); padding: 0 24px; }
-  .intro-slogan .q { display: inline; color: var(--red); margin: 0 .25em; font-family: var(--display); font-size: 1.15em; }
-  .intro-name { margin-top: 12px; font-family: var(--display); font-size: clamp(16px, 2vw, 20px); letter-spacing: .22em; color: var(--red); }
-  @keyframes introFade { to { opacity: 0; visibility: hidden; } }
-  @keyframes introZoom { to { transform: scale(7); opacity: 0; } }
   @media (prefers-reduced-motion: reduce) {
-    .intro-overlay { display: none; }
     .hero-inner, .scroll-cue, .nav { opacity: 1; animation: none; }
     .hero-inner { transform: none; }
     .hero h1 .word-in { opacity: 1; transform: none; animation: none; }
   }
-  html.no-intro .intro-overlay { display: none; }
-  html.no-intro .hero-inner, html.no-intro .scroll-cue, html.no-intro .nav { opacity: 1; animation: none; }
-  html.no-intro .hero-inner { transform: none; }
-  html.no-intro .hero h1 .word-in { animation-delay: 0s; }
-  html.no-intro .hero h1 .line-gym .word-in { animation-delay: .15s, 1.4s; }
 
   /* ---------- Sections ---------- */
   section { padding: clamp(80px, 10vw, 140px) 0; }
@@ -247,7 +222,17 @@
   .track-art { position: relative; overflow: hidden; }
   .track-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: .9; transform: scale(1.38); transform-origin: top center; }
   .track-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, var(--crimson) 0%, rgba(138, 15, 28, 0) 45%), linear-gradient(to top, rgba(18, 4, 6, .65), transparent 50%); }
+  .track-art.portrait img { transform: none; object-position: center 12%; opacity: 1; }
+  .track-art.portrait::after { background: linear-gradient(to right, var(--crimson) 0%, rgba(138, 15, 28, 0) 30%), linear-gradient(to top, rgba(10, 10, 10, .85), transparent 45%); }
+  .art-cap {
+    position: absolute; z-index: 1; right: 22px; bottom: 20px; text-align: right;
+    font-weight: 800; font-size: 20px; letter-spacing: -0.02em; line-height: 1.15; color: var(--text);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .6);
+  }
+  .art-cap small { display: block; margin-bottom: 6px; font-family: var(--display); font-weight: 400; font-size: 12px; letter-spacing: .14em; color: var(--red-soft); }
   @media (max-width: 900px) {
+    .track-art.portrait { aspect-ratio: 4 / 5; }
+    .track-art.portrait::after { background: linear-gradient(to bottom, var(--crimson) 0%, rgba(138, 15, 28, 0) 25%), linear-gradient(to top, rgba(10, 10, 10, .85), transparent 40%); }
     .tracks { grid-template-columns: 1fr; }
     .track { grid-template-columns: 1fr; min-height: 0; }
     .track-art { aspect-ratio: 16 / 9; }
@@ -354,6 +339,32 @@
   footer.site nav a:hover { color: var(--red); }
   footer.site .fine { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 8px 24px; color: var(--dim); }
 
+  /* ---------- Quick contact bar ---------- */
+  .quick {
+    position: fixed; right: 20px; bottom: 20px; z-index: 55;
+    display: grid; gap: 8px;
+    opacity: 0; animation: show .6s ease .6s forwards;
+  }
+  .quick a {
+    display: inline-flex; align-items: center; gap: 9px; height: 48px; padding: 0 18px 0 14px;
+    border-radius: 999px; font-weight: 700; font-size: 14px; white-space: nowrap;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+    transition: transform .15s ease, filter .2s ease;
+  }
+  .quick a:hover { transform: translateY(-2px); filter: brightness(1.06); }
+  .quick a:active { transform: translateY(0) scale(.98); }
+  .quick svg { width: 20px; height: 20px; flex: none; }
+  .q-kakao { background: #fee500; color: #191919; }
+  .q-naver { background: #03c75a; color: #fff; }
+  .q-tel { background: var(--red); color: #fff; }
+  @media (max-width: 760px) {
+    .quick { right: 0; bottom: 0; left: 0; grid-template-columns: repeat(3, 1fr); gap: 0; padding: 0 0 env(safe-area-inset-bottom); background: rgba(10, 10, 10, .92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line-soft); }
+    .quick a { height: 56px; border-radius: 0; justify-content: center; box-shadow: none; padding: 0; font-size: 14px; }
+    .quick a:hover { transform: none; }
+    footer.site { padding-bottom: calc(48px + 56px + env(safe-area-inset-bottom)); }
+  }
+  @media (prefers-reduced-motion: reduce) { .quick { opacity: 1; animation: none; } }
+
   /* ---------- Reveal ---------- */
   .rv { opacity: 0; transform: translateY(20px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
   .rv.in { opacity: 1; transform: none; }
@@ -365,7 +376,6 @@
     .guide img, .btn, .menu, .menu-list a { transition: none; }
   }
 </style>
-<script>if (location.search.indexOf('static') > -1) document.documentElement.classList.add('no-intro');</script>
 </head>
 <body>
 
@@ -413,12 +423,6 @@
       </div>
     </div>
     <div class="scroll-cue" aria-hidden="true">SCROLL<span class="arrow"></span></div>
-
-    <div class="intro-overlay" aria-hidden="true">
-      <div class="intro-mask"><img src="images/logo.svg" alt="" width="362" height="474"></div>
-      <p class="intro-slogan"><span class="q">“</span>오늘의 운동이 내일의 몸을 만듭니다<span class="q">”</span></p>
-      <p class="intro-name">SSONG PRO GYM</p>
-    </div>
   </section>
 
   <section id="programs" aria-labelledby="programs-title">
@@ -430,11 +434,14 @@
         <article class="track rv">
           <div class="track-body">
             <span class="chip">1:1 Personal Training</span>
-            <h3>선수 출신 대표가 직접 잡아주는 체형 분석 1:1 PT</h3>
+            <h3>현역 비키니 프로선수가 직접 지도합니다</h3>
             <p class="desc">운동 초보, 다이어트, 힙업, 벌크업, 체형교정, 바디프로필까지 맞춤 트레이닝</p>
             <a class="btn" href="https://m.booking.naver.com/booking/6/bizes/1255793/items/6252882" target="_blank" rel="noopener">PT 상담 예약 바로가기 <span class="arr" aria-hidden="true">→</span></a>
           </div>
-          <div class="track-art"><img src="images/gym-machines.jpg" alt="너틸러스, 해머스트렝스 플레이트 로드 머신이 놓인 웨이트 존" loading="lazy"></div>
+          <div class="track-art portrait">
+            <img src="images/ceo-competition.jpg" alt="PCA 세종 포인트리그 비키니 그랑프리 시상 무대에 선 대표 송미경" loading="lazy">
+            <span class="art-cap"><small>CEO · PCA BIKINI GRAND PRIX</small>대표 송미경</span>
+          </div>
         </article>
         <article class="track rv rv-2">
           <div class="track-body">
@@ -626,6 +633,21 @@
   </section>
 
 </main>
+
+<nav class="quick" aria-label="빠른 문의">
+  <a class="q-kakao" href="https://open.kakao.com/o/skRmkcjf" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.84 1.86 5.33 4.66 6.75-.2.73-.74 2.68-.85 3.1-.13.51.19.5.4.37.17-.11 2.65-1.8 3.72-2.53.66.1 1.35.15 2.07.15 5.52 0 10-3.58 10-7.99S17.52 3 12 3z"/></svg>
+    카톡 문의
+  </a>
+  <a class="q-naver" href="https://m.booking.naver.com/booking/6/bizes/1255793" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h5.2l5.6 8.4V4H20v16h-5.2L9.2 11.6V20H4z"/></svg>
+    네이버 예약
+  </a>
+  <a class="q-tel" href="tel:044-864-8385">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+    전화 문의
+  </a>
+</nav>
 
 <footer class="site">
   <div class="wrap">
