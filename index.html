@@ -208,7 +208,7 @@
   .more { display: flex; justify-content: center; margin-top: 40px; }
 
   /* ---------- Track-style cards ---------- */
-  .tracks { margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .track {
     position: relative; min-height: 366px; border-radius: var(--radius); overflow: hidden;
     background: linear-gradient(to right, var(--crimson) 0%, var(--crimson-deep) 80%);
@@ -430,9 +430,8 @@
     <div class="scroll-cue" aria-hidden="true">SCROLL<span class="arrow"></span></div>
   </section>
 
-  <section id="programs" aria-labelledby="programs-title">
+  <section id="programs" aria-label="프로그램">
     <div class="wrap">
-      <h2 class="h2 rv" id="programs-title">프로그램 안내</h2>
       <div class="tracks">
         <article class="track rv">
           <div class="track-body">
